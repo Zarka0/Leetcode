@@ -6,7 +6,7 @@ public:
         for (int num : nums) {
             if (num == 1) {
                 currentCount++;
-                maxCount = std::max(maxCount, currentCount);
+                maxCount = max(maxCount, currentCount);
             } else {
                 currentCount = 0;
             }
