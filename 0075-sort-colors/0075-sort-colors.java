@@ -1,22 +1,29 @@
 class Solution {
     public void sortColors(int[] nums) {
-        //cant use Arrays.sort()
-        boolean isSwapped;
-        for(int i=0; i<arr.length-1; i++){
-            isSwapped=false;
-            for(int j=0; j<arr.length-1-i; j++){
-                if(nums[j]>nums[j+1]){
-                    int temp=nums[j];
-                    nums[j]=nums[j+1];
-                    nums[j+1]=temp;
-                    isSwapped=true;
-                }
+        int i=0;
+        int j=0;
+        int k=nums.length-1;
+        while(i<=k){
+            if(nums[i]==0){
+                swap(nums,i,j);
+                i++;
+                j++;
 
-            }
-            if(isSwapped==false){
-                break;
+            }else if(nums[i]==1){
+                i++;
+            }else if(nums[i]==2){
+                swap(nums,i,k);
+                k--;
             }
         }
-        
+
+
     }
+        public void swap(int[] nums, int i, int j){
+            int temp=nums[i];
+            nums[i]=nums[j];
+            nums[j]=temp;
+        }
+
+    
 }
