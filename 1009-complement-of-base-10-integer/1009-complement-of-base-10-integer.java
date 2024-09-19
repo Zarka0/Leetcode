@@ -1,14 +1,13 @@
 class Solution {
     public int bitwiseComplement(int n) {
-        StringBuilder res=new StringBuilder("");
-        String t=Integer.toBinaryString(n);
-        for(char c: t.toCharArray()){
-            if(c=='1'){
-                res.append('0');
-            }else{
-                res.append('1');
-            }
+        int i=0; //will store the length of binary rep of n
+        int k=n;
+        if(n==0) return 1;
+        while(k>0){//this calculates the length of binary rep of n
+            i++;
+            k>>=1;
         }
-        return Integer.parseInt(res.toString(),2);//
+        int a = ((1<<i)-1);//will give bitmask
+        return a^n;
     }
 }
