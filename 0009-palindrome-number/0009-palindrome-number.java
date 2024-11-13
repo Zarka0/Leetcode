@@ -6,6 +6,7 @@ class Solution {
             int dig=x%10;
             rev=rev*10+dig;
             x=x/10;
+
         }
         return og==rev;
     }
