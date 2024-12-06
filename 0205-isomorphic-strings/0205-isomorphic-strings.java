@@ -1,34 +1,31 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
+        HashMap<Character, Character> mapS=new HashMap<>();
+        HashMap<Character, Character> mapT=new HashMap<>();
         if(s.length()!=t.length()) return false;
-        HashMap<Character,Character> mapS=new HashMap<>();
-        HashMap<Character,Character> mapT=new HashMap<>();
         for(int i=0; i<s.length(); i++){
-            char tChar=t.charAt(i);
             char sChar=s.charAt(i);
-
+            char tChar=t.charAt(i);
             if(mapS.containsKey(sChar)){
-                if(mapS.get(sChar)!=tChar){
+                if(mapS.get(sChar)!=tChar) return false;
+            
+            }
+            else{
+                mapS.put(sChar, tChar);
+            }
+            if(mapT.containsKey(tChar)){
+                if(mapT.get(tChar)!=sChar){
                     return false;
                 }
             }
-                else{
-                    mapS.put(sChar, tChar);
-                }
+            else{
+                mapT.put(tChar, sChar);
+            }
 
-                if(mapT.containsKey(tChar)){
-                    if(mapT.get(tChar)!=sChar){
-                        return false;
-                    }
-                }
-                    else{
-                        mapT.put(tChar,sChar);
-                    }
-                }
-            
-
-        
+        }
         return true;
+
+
 
     }
 }
